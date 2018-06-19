@@ -2,23 +2,23 @@
 
 from setuptools import setup, find_packages
 
-__version__ = '1.3.2'
+__version__ = '1.1.0'
 
 setup(
-    name='ElasticMock',
+    name='ElasticsearchMock',
     version=__version__,
-    url='https://github.com/vrcmarcos/elasticmock',
+    url='https://github.com/jmlw/elasticmock',
     license='MIT',
-    author='Marcos Cardoso',
-    author_email='vrcmarcos@gmail.com',
+    author='Josh Wood',
+    author_email='josh.m.l.wood@gmail.com',
     description='Python Elasticsearch Mock for test purposes',
-    packages=find_packages(),
+    packages=find_packages(exclude=['tests']),
     zip_safe=False,
     include_package_data=True,
     platforms='any',
     install_requires=[
-        'elasticsearch<=1.9.0',
-        'mock<=1.0.1'
+        'elasticsearch>=5.0.0,<6.0.0',
+        'mock==1.0.1'
     ],
     classifiers=[
         'Environment :: Web Environment',
