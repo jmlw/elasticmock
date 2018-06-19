@@ -18,7 +18,7 @@ setup(
     platforms='any',
     install_requires=[
         'elasticsearch>=5.0.0,<6.0.0',
-        'mock==1.0.1'
+        'mock<=1.0.1'
     ],
     classifiers=[
         'Environment :: Web Environment',
