@@ -2,17 +2,17 @@
 
 Python Elasticsearch Mock for test purposes
 
-[![Build Status](https://travis-ci.org/vrcmarcos/elasticmock.svg?branch=master)](https://travis-ci.org/vrcmarcos/elasticmock) [![Coverage Status](https://coveralls.io/repos/github/vrcmarcos/elasticmock/badge.svg?branch=master)](https://coveralls.io/github/vrcmarcos/elasticmock?branch=master) [![PyPI version](https://badge.fury.io/py/ElasticMock.svg)](https://badge.fury.io/py/ElasticMock) [![Code Health](https://landscape.io/github/vrcmarcos/elasticmock/master/landscape.svg?style=flat)](https://landscape.io/github/vrcmarcos/elasticmock/master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/vrcmarcos/elasticmock/master/LICENSE)
+[![Build Status](https://travis-ci.org/jmlw/elasticmock.svg?branch=master)](https://travis-ci.org/jmlw/elasticmock) [![Coverage Status](https://coveralls.io/repos/github/jmlw/elasticmock/badge.svg?branch=master)](https://coveralls.io/github/jmlw/elasticmock?branch=master) [![PyPI version](https://badge.fury.io/py/ElasticsearchMock.svg)](https://badge.fury.io/py/ElasticsearchMock) [![Code Health](https://landscape.io/github/jmlw/elasticmock/master/landscape.svg?style=flat)](https://landscape.io/github/jmlw/elasticmock/master) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jmlw/elasticmock/master/LICENSE)
 
 ## Installation
 
 ```shell
-pip install ElasticMock
+pip install ElasticsearchMock
 ```
 
 ## Usage
 
-To use ElasticMock, decorate your test method with **@elasticmock** decorator:
+To use ElasticsearchMock, decorate your test method with **@elasticmock** decorator:
 
 ```python
 from unittest import TestCase
@@ -28,7 +28,7 @@ class TestClass(TestCase):
 ```
 
 ## Notes:
-
+- You must create an  Elasticsearch Client using `elasticsearch.Elasticsearch(...)` after importing Elasticsearch with `import elasticsearch`. This allows the patch to properly replace the production client with the FakeElasticsearch client.
 - The mocked **search** method returns **all available documents** indexed on the index with the requested document type.
 - The mocked **suggest** method returns the exactly suggestions dictionary passed as body serialized in Elasticsearch.suggest response. **Atention:** If the term is an *int*, the suggestion will be ```python term + 1```. If not, the suggestion will be formatted as ```python {0}_suggestion.format(term) ```.
 Example:
@@ -91,6 +91,13 @@ python setup.py test
 
 ## Changelog
 
+### jmlw/ElasticMock
+#### 1.1.2
+- coming soon
+#### 1.0.0
+- coming soon
+
+### Forked from vrcmarcos/ElasticMock 
 #### 1.3.2
 
 - **elasticmock**: Python 3 fixes (Thanks [@barseghyanartur](https://github.com/barseghyanartur))
